@@ -11,14 +11,18 @@ Before running the project, make sure to set up your Python virtual environment.
 ### Step 1: Install `virtualenv` (if not already installed)
 ```bash
 pip install virtualenv
+```
+
 
 ### Step 2: Create a virtual environment
 ```bash
 python -m virtualenv demoEnv
+```
 
 ### Step 3: Activate the virtual environment
 ```bash
 demoEnv\Scripts\activate
+```
 
 ## Install Project Dependencies
 
@@ -26,6 +30,7 @@ After activating your virtual environment, install all necessary packages:
 
 ```bash
 pip install -r requirements.txt
+```
 
 This installs all dependencies used in the project including Django, pandas, etc.
 
@@ -40,19 +45,26 @@ Create a database (e.g., PostgreSQL, SQLite, etc.) and update the database setti
 ### Step 2: Create migrations
 ```bash
 python manage.py makemigrations
+```
 
 ### Step 3: Apply migrations to create tables
 ```bash
 python manage.py migrate
+```
 
 ## 🚀 Run the Project
+
 Start the development server:
+
 ```bash
 python manage.py runserver
+```
 
 Then open this URL in your browser to access the landing screen:
+
 ```bash
 http://127.0.0.1:8000/secret-santa/
+```
 
 ## 📂 Project Scenarios
 
@@ -68,8 +80,8 @@ Upload a CSV containing last year’s Secret Santa assignments. If the data does
 
 Generates a new set of Secret Santa child assignments for the current year. The logic ensures:
 
-No employee is assigned themselves
+-- No employee is assigned themselves
 
-No repeat of previous year's assignment
+-- No repeat of previous year's assignment
 
 Upon successful generation, the assignment will be available as a downloadable CSV file.
