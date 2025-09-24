@@ -1,0 +1,34 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Secret-Santa</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <h1 class="heading">Welcome to Create Secret-Santa</h1>
+    {% if messages %}
+        {% for message in messages %}
+            <div class="message {{message.tags}}">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+    {% comment %} {% if message %}
+        <p style="color: red;">{{ message }}</p>
+    {% endif %} {% endcomment %}
+    <div class="mini_container">
+        <a href="{% url "upload_employee_csv" %}">Upload Employee</a>
+        <a href="{% url "upload_previous_secretsanta_csv" %}">Upload Previous Secret-Santa Child</a>
+        <a href="{% url "generate_secret_santa" %}">Generate Secret-Santa Child</a>
+        {% comment %} <a onclick="window.location.href='{% url 'download_secret_santa_csv' %}'">Generate Secret-Santa Child</a> {% endcomment %}
+    </div>
+
+    {% if generate_flag %}
+    <script>
+    // Auto-download the file
+        window.onload = function() {
+            window.location.href = "{% url 'generate_secret_santa_download' %}";
+        }
+    </script>
+    {% endif %}
+</body>
+</html>
